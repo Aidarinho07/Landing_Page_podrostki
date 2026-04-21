@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Очная группа «Я в порядке» для девочек 12+: границы, тело, отношения, интернет. 5 встреч, старт 10 мая." />
+  <title>«Я в порядке» — группа для девочек 12+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --page: #f7f5f1;
+      --paper: #fffcfa;
+      --ink: #242220;
+      --muted: #5e5954;
+      --line: #e6e1d9;
+      --accent: #2f6f5e;
+      --accent-soft: #e8f2ee;
+      --accent-ink: #1d4a3e;
+      --warm: #c45d4e;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --max: 820px;
+      --font-body: "Nunito Sans", system-ui, sans-serif;
+      --font-display: "Cormorant", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--ink);
+      min-height: 100vh;
+      background-color: var(--page);
+      background-image:
+        linear-gradient(180deg, rgba(247, 245, 241, 0.9) 0%, rgba(247, 245, 241, 0.88) 100%),
+        url("assets/seamless-abstract-pattern-design.jpg");
+      background-repeat: no-repeat, no-repeat;
+      background-size: 100% 100%, cover;
+      background-position: center, center;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      letter-spacing: 0.01em;
+      line-height: 1.22;
+    }
+
+    h1 {
+      font-size: clamp(2.15rem, 5vw, 2.85rem);
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.45rem, 3vw, 1.85rem);
+      font-weight: 600;
+      margin: 0 0 18px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--accent-ink);
+    }
+
+    .shell {
+      max-width: calc(var(--max) + 56px);
+      margin: 0 auto;
+      padding: 0 28px 96px;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 0 8px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 36px;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+
+    .top a.nav-cta {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      color: var(--paper);
+      background: var(--accent);
+      padding: 10px 18px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .top a.nav-cta:hover {
+      background: var(--accent-ink);
+      transform: translateY(-1px);
+    }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--muted);
+      max-width: 36ch;
+      margin: 0 0 28px;
+      line-height: 1.55;
+    }
+
+    .tagline {
+      font-size: 1.02rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 20px 0 0;
+      max-width: 40ch;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      color: var(--paper);
+      background: var(--accent);
+      padding: 16px 32px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-ink);
+      transform: translateY(-1px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--warm);
+      outline-offset: 3px;
+    }
+
+    .btn-row {
+      margin-top: 8px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      margin: 40px 0 48px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .metric {
+      background: var(--paper);
+      padding: 22px 20px;
+    }
+
+    .metric strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+    }
+
+    .card + .card {
+      margin-top: 16px;
+    }
+
+    .lede {
+      font-size: 1.06rem;
+      font-weight: 400;
+    }
+
+    ul.plain {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul.plain li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 12px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    ul.plain li:last-child {
+      margin-bottom: 0;
+    }
+
+    ul.plain li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      border: 2px solid var(--accent);
+    }
+
+    .for-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .for-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .for-item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px 22px 22px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .for-num {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 2.2rem;
+    }
+
+    .for-item p {
+      font-size: 0.98rem;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .meetings {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .meeting {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .meeting:first-child {
+      padding-top: 4px;
+    }
+
+    .meeting:last-child {
+      border-bottom: none;
+      padding-bottom: 4px;
+    }
+
+    .meeting h3 {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+    }
+
+    .meeting p {
+      font-size: 0.98rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .notice {
+      background: var(--accent-soft);
+      border: 1px solid #c5ddd2;
+      border-radius: var(--radius-lg);
+      padding: 24px 22px;
+    }
+
+    .notice h3 {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent-ink);
+      margin-bottom: 12px;
+    }
+
+    .hosts {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .hosts {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .host-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+    }
+
+    .host-card .role {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .host-card .name {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .host-card p {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    details.faq-item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0 18px;
+      margin-bottom: 10px;
+    }
+
+    details.faq-item summary {
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      padding: 16px 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    details.faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.faq-item summary::after {
+      content: "+";
+      font-weight: 400;
+      font-size: 1.25rem;
+      color: var(--muted);
+    }
+
+    details.faq-item[open] summary::after {
+      content: "−";
+    }
+
+    details.faq-item .answer {
+      padding: 0 0 18px;
+      font-size: 0.98rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .cta-block {
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+    }
+
+    .cta-block .btn {
+      min-width: 260px;
+    }
+
+    .fineprint {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 20px;
+      line-height: 1.55;
+    }
+
+    .disclosure {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--muted);
+      border-left: 3px solid var(--line);
+      padding-left: 16px;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="top">
+      <span class="brand">Группа для девочек</span>
+      <a class="nav-cta" href="#signup">Записаться</a>
+    </div>
+
+    <header>
+      <p class="eyebrow">Очно · 12 участниц · 12+</p>
+      <h1>«Я в порядке»</h1>
+      <p class="hero-sub">
+        Группа про жизнь девочек без морали: границы, отношения, тело, интернет, давление и выбор — в спокойной атмосфере и на понятном языке.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="#signup">Записаться в группу</a>
+      </div>
+      <p class="tagline">
+        Не лекции «как надо», а разговор, практика и опора: что происходит со мной и что я могу с этим сделать безопасно для себя.
+      </p>
+    </header>
+
+    <div class="metrics" role="list">
+      <div class="metric" role="listitem">
+        <strong>12 человек</strong>
+        <span>небольшая группа, чтобы каждой было слышно</span>
+      </div>
+      <div class="metric" role="listitem">
+        <strong>Воскресенье</strong>
+        <span>12:00 — 13:30, удобно после сна и до планов на день</span>
+      </div>
+      <div class="metric" role="listitem">
+        <strong>1500 ₽</strong>
+        <span>за одну встречу · 5 встреч · 7500 ₽ за весь цикл</span>
+      </div>
+      <div class="metric" role="listitem">
+        <strong>10 мая — 7 июня</strong>
+        <span>старт и финиш: пять воскресений подряд</span>
+      </div>
+    </div>
+
+    <section aria-labelledby="format-h">
+      <h2 id="format-h">Какой это формат</h2>
+      <div class="card">
+        <p class="lede">
+          Это <strong>образовательная группа навыков</strong>: мы говорим о реальной жизни подростков, разбираем ситуации и тренируем ответы. Это не индивидуальная психотерапия и не медицинская помощь — если нужна личная работа с психологом, её можно обсудить отдельно.
+        </p>
+        <p>
+          На встречах будут короткие презентации, круг, творческие и телесно-безопасные практики, ролевые зарисовки и время на вопросы без оценки и осуждения.
+        </p>
+        <p class="disclosure">
+          Если участнице тяжело в группе, ведущие помогут сформулировать запрос и при необходимости порекомендуют индивидальный формат поддержки.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="learn-h">
+      <h2 id="learn-h">Чему девочки научатся</h2>
+      <div class="card">
+        <ul class="plain">
+          <li>называть свои границы и отстаивать их без агрессии и без чувства вины;</li>
+          <li>понимать сигналы тела и эмоций в пубертате — без стыда и «запретных тем»;</li>
+          <li>различать давление сверстников, интернета и взрослых и выбирать безопасный ответ;</li>
+          <li>применять «моральное айкидо» в травле и конфликтах — словами и действиями;</li>
+          <li>строить общение в сети так, чтобы снизить риски кибербуллинга и незнакомцев;</li>
+          <li>замечать ранние признаки вредных привычек (гаджеты, вейпы, еда) и куда обратиться за помощью.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="for-h">
+      <h2 id="for-h">Кому группа поможет в первую очередь</h2>
+      <div class="for-grid">
+        <article class="for-item">
+          <span class="for-num">01</span>
+          <p>
+            Девочкам, которым <strong>сложно говорить «нет»</strong> и которые часто соглашаются «чтобы не было конфликта».
+          </p>
+        </article>
+        <article class="for-item">
+          <span class="for-num">02</span>
+          <p>
+            Тем, кто <strong>много времени в телефоне</strong>, сравнивает себя с другими и устал от тревожных лент и чатов.
+          </p>
+        </article>
+        <article class="for-item">
+          <span class="for-num">03</span>
+          <p>
+            Подросткам, которые <strong>стесняются вопросов о теле и отношениях</strong> и хотят спокойных, честных объяснений.
+          </p>
+        </article>
+        <article class="for-item">
+          <span class="for-num">04</span>
+          <p>
+            Тем, кто сталкивается с <strong>насмешками, обсуждениями за спиной или манипуляциями</strong> и хочет понять, как реагировать.
+          </p>
+        </article>
+        <article class="for-item">
+          <span class="for-num">05</span>
+          <p>
+            Всем, кто хочет <strong>больше опоры в себе</strong> и практик «что сказать и что сделать», если стало неуютно или страшно.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="why-h">
+      <h2 id="why-h">Почему это важно сейчас</h2>
+      <div class="card">
+        <p>
+          Давление, ожидания и скорость интернета часто обгоняют внутренние ресурсы. Когда нет слов и схемы «что делать», растёт тревога, стыд и риск небезопасных решений.
+        </p>
+        <p>
+          Мы не заменяем родителей и не даём жёстких запретов — передаём <strong>навыки осознанности и самозащиты</strong>: как понять ситуацию, кого попросить о помощи и как выйти из неё с достоинством.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="program-h">
+      <h2 id="program-h">Программа: 5 встреч</h2>
+      <div class="card">
+        <div class="meetings">
+          <article class="meeting">
+            <h3>Встреча 1 · Личные границы и уверенность</h3>
+            <p>
+              Что такое граница в жизни, а не «в теории»; как просить о дистанции у друзей и взрослых; мини-практики формулировок «мне так ок / мне так не ок».
+            </p>
+          </article>
+          <article class="meeting">
+            <h3>Встреча 2 · Этапы взросления и тело</h3>
+            <p>
+              Пубертат без смущения: изменения, норма вариативности, гигиена и здоровье, вопросы к ведущим и анонимная коробка, если так комфортнее.
+            </p>
+          </article>
+          <article class="meeting">
+            <h3>Встреча 3 · Защита от зависимостей</h3>
+            <p>
+              Гаджеты, вейпы, еда как способ «утихомирить» напряжение; как заметить скользкую дорожку и что можно сделать вместо стыда и самонаказания.
+            </p>
+          </article>
+          <article class="meeting">
+            <h3>Встреча 4 · «Моральное айкидо»</h3>
+            <p>
+              Травля, сплетни, конфликты: сценарии ответа, поддержка свидетеля, куда обратиться в школе и дома; без призывов к «драться первой».
+            </p>
+          </article>
+          <article class="meeting">
+            <h3>Встреча 5 · Безопасный интернет</h3>
+            <p>
+              Личные данные, фото, знакомства в сети, кибербуллинг; договорённости с собой и с близкими; итоги группы и «что дальше».
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="notice-h">
+      <div class="notice" id="notice-h">
+        <h3>Обратите внимание</h3>
+        <p>
+          Перед стартом мы проводим <strong>короткое знакомство</strong> с участницей (и при необходимости — с родителем): чтобы подтвердить возраст, ожидания и комфортный уровень открытости в группе.
+        </p>
+        <p style="margin-top: 12px;">
+          Группа только для девочек <strong>12+</strong>. Просим приходить вовремя и заранее предупреждать о пропуске — так проще сохранять доверие в кругу.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="hosts-h">
+      <h2 id="hosts-h">Ведущие</h2>
+      <div class="hosts">
+        <article class="host-card">
+          <div class="role">Психология</div>
+          <div class="name">Подростковый психолог</div>
+          <p>
+            Ведёт групповую динамику, эмоции и границы. Фокус — безопасная среда, где можно задавать «неудобные» вопросы и тренировать новые реакции.
+          </p>
+        </article>
+        <article class="host-card">
+          <div class="role">Право и безопасность</div>
+          <div class="name">Юрист по делам несовершеннолетних</div>
+          <p>
+            Подсвечивает правовой контекст: что считается буллингом, как устроена защита несовершеннолетних, куда обращаться, если ситуация вышла за рамки разговора в группе.
+          </p>
+        </article>
+      </div>
+      <p class="fineprint" style="margin-top: 18px;">
+        Фамилии и контакты ведущих можно добавить в блок при публикации — сейчас указаны роли, как в описании программы.
+      </p>
+    </section>
+
+    <section aria-labelledby="faq-h">
+      <h2 id="faq-h">Ответы на частые вопросы</h2>
+      <details class="faq-item">
+        <summary>Можно ли приходить, если девочка стесняется групп?</summary>
+        <div class="answer">
+          Да. Первые встречи выстроены мягко: много структуры, понятных правил конфиденциальности и коротких заданий в парах, чтобы не «выступать перед всеми» с нуля.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Будет ли связь с родителями?</summary>
+        <div class="answer">
+          Содержание круга между участницами не обсуждается с родителями подробно. При необходимости — только общеобразовательные рекомендации и вопросы безопасности. Формат знакомства до старта согласуется отдельно.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Что, если пропущена одна встреча?</summary>
+        <div class="answer">
+          Материалы встречи кратко суммируются в начале следующей; полноценно «вернуть» пропуск онлайн мы не обещаем — зато можно заранее согласовать перенос только при форс-мажоре, если места ещё есть.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Есть ли противопоказания?</summary>
+        <div class="answer">
+          Группа не подойдёт при острых кризисах, угрозе себе или другим, тяжёлой депрессии без сопровождения специалиста и в ситуациях, где нужна срочная юридическая или медицинская помощь. В таких случаях лучше начать с индивидальной поддержки.
+        </div>
+      </details>
+    </section>
+
+    <footer class="cta-block" id="signup">
+      <h2 style="margin-bottom: 14px;">Запись в группу</h2>
+      <p style="color: var(--muted); margin-bottom: 22px; max-width: 42ch; margin-left: auto; margin-right: auto;">
+        Напишите, как вас зовут, возраст участницы и удобный способ связи — мы пришлём детали оплаты и адрес очной встречи.
+      </p>
+      <a class="btn" href="#">Записаться в группу</a>
+      <p class="fineprint">
+        Замените у кнопки <code>href</code> на ссылку на мессенджер, форму или почту для записи.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
