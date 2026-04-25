@@ -547,6 +547,23 @@
       justify-content: center;
     }
 
+    .success-message {
+      display: none;
+      margin: 18px auto 0;
+      max-width: 760px;
+      padding: 14px 16px;
+      border: 1px solid #c5ddd2;
+      border-radius: 12px;
+      background: #edf8f3;
+      color: #1f5f4d;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .success-message.is-visible {
+      display: block;
+    }
+
     .fineprint {
       font-size: 0.85rem;
       font-weight: 400;
@@ -921,6 +938,7 @@
         <input type="hidden" name="_subject" value="Новая заявка: группа «Я в порядке»" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" id="form-next-url" value="" />
         <div class="field">
           <span class="icon" aria-hidden="true">✉</span>
           <input type="email" name="email" placeholder="Введите ваш эл. адрес" required />
@@ -937,10 +955,29 @@
           <button class="btn" type="submit">Принять участие</button>
         </div>
       </form>
+      <div class="success-message" id="success-message" role="status" aria-live="polite">
+        Спасибо! Заявка отправлена. Мы скоро свяжемся с вами.
+      </div>
       <p class="fineprint">
         После отправки заявки вы получите подтверждение и детали участия.
       </p>
     </footer>
   </div>
+  <script>
+    (function () {
+      var form = document.getElementById("signup-form");
+      var nextInput = document.getElementById("form-next-url");
+      var successBox = document.getElementById("success-message");
+      if (!form || !nextInput || !successBox) return;
+
+      var nextUrl = window.location.origin + window.location.pathname + "?sent=1#signup";
+      nextInput.value = nextUrl;
+
+      var params = new URLSearchParams(window.location.search);
+      if (params.get("sent") === "1") {
+        successBox.classList.add("is-visible");
+      }
+    })();
+  </script>
 </body>
 </html>
