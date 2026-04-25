@@ -19,9 +19,12 @@
       --accent-soft: #e8f2ee;
       --accent-ink: #1d4a3e;
       --warm: #c45d4e;
+      --title: #7d3c8a;
+      --cta-pink: #fc8483;
+      --cta-pink-hover: #f46f6e;
       --radius: 12px;
       --radius-lg: 20px;
-      --max: 820px;
+      --max: 1080px;
       --font-body: "Nunito Sans", system-ui, sans-serif;
       --font-display: "Cormorant", Georgia, serif;
     }
@@ -65,8 +68,9 @@
     }
 
     h2 {
-      font-size: clamp(1.45rem, 3vw, 1.85rem);
+      font-size: clamp(1.65rem, 3.6vw, 2.15rem);
       font-weight: 600;
+      color: var(--title);
       margin: 0 0 18px;
     }
 
@@ -107,28 +111,35 @@
     .brand {
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: 1.15rem;
+      font-size: 2.1rem;
       letter-spacing: 0.02em;
       color: var(--ink);
     }
 
     .top a.nav-cta {
       font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       text-decoration: none;
       color: var(--paper);
-      background: var(--accent);
-      padding: 10px 18px;
-      border-radius: 999px;
+      background:
+        linear-gradient(135deg, #ffffff4d 0%, #ffffff24 26%, #ffffff00 70%),
+        linear-gradient(180deg, #fc8f8e 0%, #fc8483 100%);
+      padding: 12px 22px;
+      border-radius: 20px;
+      box-shadow: 0 4px 0 #dd4c4b;
       white-space: nowrap;
-      transition: background 0.15s ease, transform 0.15s ease;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .top a.nav-cta:hover {
-      background: var(--accent-ink);
+      background:
+        linear-gradient(135deg, #ffffff57 0%, #ffffff2b 28%, #ffffff00 72%),
+        linear-gradient(180deg, #fc8887 0%, var(--cta-pink-hover) 100%);
       transform: translateY(-1px);
+      box-shadow: 0 5px 0 #d64342;
     }
 
     .eyebrow {
@@ -145,7 +156,8 @@
       font-size: 1.12rem;
       font-weight: 400;
       color: var(--muted);
-      max-width: 36ch;
+      max-width: none;
+      text-align: center;
       margin: 0 0 28px;
       line-height: 1.55;
     }
@@ -155,7 +167,7 @@
       font-style: italic;
       font-weight: 400;
       color: var(--muted);
-      margin: 20px 0 0;
+      margin: 20px auto 0;
       max-width: 40ch;
     }
 
@@ -164,22 +176,29 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       text-decoration: none;
       color: var(--paper);
-      background: var(--accent);
-      padding: 16px 32px;
-      border-radius: 999px;
+      background:
+        linear-gradient(135deg, #ffffff4d 0%, #ffffff24 26%, #ffffff00 70%),
+        linear-gradient(180deg, #fc8f8e 0%, #fc8483 100%);
+      padding: 18px 44px;
+      border-radius: 34px;
       border: none;
       cursor: pointer;
-      transition: background 0.15s ease, transform 0.15s ease;
+      box-shadow: 0 6px 0 #dd4c4b;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .btn:hover {
-      background: var(--accent-ink);
+      background:
+        linear-gradient(135deg, #ffffff57 0%, #ffffff2b 28%, #ffffff00 72%),
+        linear-gradient(180deg, #fc8887 0%, var(--cta-pink-hover) 100%);
       transform: translateY(-1px);
+      box-shadow: 0 7px 0 #d64342;
     }
 
     .btn:focus-visible {
@@ -193,7 +212,7 @@
 
     .metrics {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1px;
       margin: 40px 0 48px;
       background: var(--line);
@@ -204,23 +223,24 @@
 
     .metric {
       background: var(--paper);
-      padding: 22px 20px;
+      padding: 26px 22px;
+      min-height: 210px;
     }
 
     .metric strong {
       display: block;
       font-family: var(--font-display);
-      font-size: 1.28rem;
-      font-weight: 600;
+      font-size: 1.7rem;
+      font-weight: 700;
       letter-spacing: 0.02em;
       margin-bottom: 6px;
     }
 
     .metric span {
-      font-size: 0.92rem;
+      font-size: 0.98rem;
       font-weight: 400;
       color: var(--muted);
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     section {
@@ -332,9 +352,10 @@
 
     .meeting h3 {
       font-family: var(--font-display);
-      font-size: 1.08rem;
-      font-weight: 600;
+      font-size: 1.42rem;
+      font-weight: 700;
       letter-spacing: 0.01em;
+      color: var(--title);
       margin-bottom: 8px;
     }
 
@@ -380,6 +401,18 @@
       padding: 22px;
     }
 
+    .host-photo {
+      width: 55%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      border: 1px solid var(--line);
+    }
+
     .host-card .role {
       font-family: var(--font-body);
       font-size: 0.85rem;
@@ -392,7 +425,7 @@
 
     .host-card .name {
       font-family: var(--font-display);
-      font-size: 1.22rem;
+      font-size: 1.3rem;
       font-weight: 600;
       letter-spacing: 0.02em;
       margin-bottom: 10px;
@@ -402,6 +435,10 @@
       font-size: 0.95rem;
       font-weight: 400;
       color: var(--muted);
+    }
+
+    header {
+      text-align: center;
     }
 
     details.faq-item {
@@ -460,6 +497,56 @@
       min-width: 260px;
     }
 
+    .signup-form {
+      margin: 0 auto;
+      max-width: 760px;
+      text-align: left;
+    }
+
+    .field {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .field .icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #f28696;
+      font-size: 1rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .field input {
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid #b5aeb3;
+      background: transparent;
+      padding: 14px 12px 12px 38px;
+      font-size: 1.02rem;
+      font-family: var(--font-body);
+      color: var(--ink);
+      outline: none;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .field input::placeholder {
+      color: #8e8790;
+    }
+
+    .field input:focus {
+      border-bottom-color: var(--cta-pink);
+      box-shadow: 0 1px 0 0 var(--cta-pink);
+    }
+
+    .form-submit {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+    }
+
     .fineprint {
       font-size: 0.85rem;
       font-weight: 400;
@@ -467,6 +554,7 @@
       margin-top: 20px;
       line-height: 1.55;
     }
+
 
     .disclosure {
       font-size: 0.9rem;
@@ -476,13 +564,142 @@
       padding-left: 16px;
       margin-top: 18px;
     }
+
+    @media (max-width: 768px) {
+      .shell {
+        padding: 0 18px 72px;
+      }
+
+      .top {
+        gap: 10px;
+        padding: 16px 0 8px;
+        margin-bottom: 24px;
+      }
+
+      .brand {
+        font-size: 1.05rem;
+      }
+
+      .top a.nav-cta {
+        padding: 9px 14px;
+        font-size: 0.84rem;
+      }
+
+      h1 {
+        font-size: clamp(1.95rem, 8vw, 2.35rem);
+        line-height: 1.16;
+      }
+
+      h2 {
+        font-size: clamp(1.45rem, 6vw, 1.8rem);
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      .tagline {
+        font-size: 0.95rem;
+        max-width: none;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 360px;
+        padding: 14px 20px;
+      }
+
+      .btn-row {
+        display: flex;
+        justify-content: center;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr 1fr;
+        margin: 28px 0 34px;
+      }
+
+      .metric {
+        padding: 18px 16px;
+      }
+
+      .metric strong {
+        font-size: 1.32rem;
+      }
+
+      .metric span {
+        font-size: 0.9rem;
+      }
+
+      section {
+        margin-bottom: 38px;
+      }
+
+      .card,
+      .notice,
+      .host-card,
+      .cta-block {
+        padding: 20px 16px;
+      }
+
+      .host-photo {
+        margin-bottom: 12px;
+      }
+
+      .meeting {
+        padding: 16px 0;
+      }
+
+      .meeting h3 {
+        font-size: 1.2rem;
+      }
+
+      .field input {
+        font-size: 0.98rem;
+      }
+
+    }
+
+    @media (max-width: 520px) {
+      .top {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .brand {
+        text-align: center;
+      }
+
+      .top a.nav-cta {
+        text-align: center;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .for-item {
+        padding: 16px 14px;
+        gap: 12px;
+      }
+
+      .for-num {
+        min-width: 1.8rem;
+        font-size: 1.45rem;
+      }
+
+      .signup-form {
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="shell">
     <div class="top">
       <span class="brand">Группа для девочек</span>
-      <a class="nav-cta" href="#signup">Записаться</a>
+      <a class="nav-cta" href="#signup-form">Записаться</a>
     </div>
 
     <header>
@@ -492,7 +709,7 @@
         Группа про жизнь девочек без морали: границы, отношения, тело, интернет, давление и выбор — в спокойной атмосфере и на понятном языке.
       </p>
       <div class="btn-row">
-        <a class="btn" href="#signup">Записаться в группу</a>
+        <a class="btn" href="#signup-form">Записаться в группу</a>
       </div>
       <p class="tagline">
         Не лекции «как надо», а разговор, практика и опора: что происходит со мной и что я могу с этим сделать безопасно для себя.
@@ -525,7 +742,7 @@
           Это <strong>образовательная группа навыков</strong>: мы говорим о реальной жизни подростков, разбираем ситуации и тренируем ответы. Это не индивидуальная психотерапия и не медицинская помощь — если нужна личная работа с психологом, её можно обсудить отдельно.
         </p>
         <p>
-          На встречах будут короткие презентации, круг, творческие и телесно-безопасные практики, ролевые зарисовки и время на вопросы без оценки и осуждения.
+          На встречах будут короткие презентации, круг, творческие и телесно-безопасные практики и время на вопросы без оценки и осуждения.
         </p>
         <p class="disclosure">
           Если участнице тяжело в группе, ведущие помогут сформулировать запрос и при необходимости порекомендуют индивидальный формат поддержки.
@@ -637,7 +854,7 @@
       <div class="notice" id="notice-h">
         <h3>Обратите внимание</h3>
         <p>
-          Перед стартом мы проводим <strong>короткое знакомство</strong> с участницей (и при необходимости — с родителем): чтобы подтвердить возраст, ожидания и комфортный уровень открытости в группе.
+          Перед стартом мы проводим <strong>короткое знакомство</strong> с участницей, чтобы подтвердить возраст, ожидания и комфортный уровень открытости в группе.
         </p>
         <p style="margin-top: 12px;">
           Группа только для девочек <strong>12+</strong>. Просим приходить вовремя и заранее предупреждать о пропуске — так проще сохранять доверие в кругу.
@@ -649,23 +866,22 @@
       <h2 id="hosts-h">Ведущие</h2>
       <div class="hosts">
         <article class="host-card">
+          <img class="host-photo" src="assets/Aida.png" alt="Аида Баймухаметова" />
           <div class="role">Психология</div>
-          <div class="name">Подростковый психолог</div>
+          <div class="name">Аида Баймухаметова</div>
           <p>
-            Ведёт групповую динамику, эмоции и границы. Фокус — безопасная среда, где можно задавать «неудобные» вопросы и тренировать новые реакции.
+            Практикующий психолог, фасилитатор телесного развития, блогер.
           </p>
         </article>
         <article class="host-card">
+          <img class="host-photo" src="assets/Olga.png" alt="Ольга Мякина" />
           <div class="role">Право и безопасность</div>
-          <div class="name">Юрист по делам несовершеннолетних</div>
+          <div class="name">Ольга Мякина</div>
           <p>
-            Подсвечивает правовой контекст: что считается буллингом, как устроена защита несовершеннолетних, куда обращаться, если ситуация вышла за рамки разговора в группе.
+            Руководитель школы безопасности «Стоп Угроза», тренер по безопасности.
           </p>
         </article>
       </div>
-      <p class="fineprint" style="margin-top: 18px;">
-        Фамилии и контакты ведущих можно добавить в блок при публикации — сейчас указаны роли, как в описании программы.
-      </p>
     </section>
 
     <section aria-labelledby="faq-h">
@@ -685,7 +901,7 @@
       <details class="faq-item">
         <summary>Что, если пропущена одна встреча?</summary>
         <div class="answer">
-          Материалы встречи кратко суммируются в начале следующей; полноценно «вернуть» пропуск онлайн мы не обещаем — зато можно заранее согласовать перенос только при форс-мажоре, если места ещё есть.
+          Материалы встречи кратко суммируются в начале следующей; полноценно «вернуть» пропуск онлайн мы не обещаем.
         </div>
       </details>
       <details class="faq-item">
@@ -701,9 +917,28 @@
       <p style="color: var(--muted); margin-bottom: 22px; max-width: 42ch; margin-left: auto; margin-right: auto;">
         Напишите, как вас зовут, возраст участницы и удобный способ связи — мы пришлём детали оплаты и адрес очной встречи.
       </p>
-      <a class="btn" href="#">Записаться в группу</a>
+      <form class="signup-form" id="signup-form" action="https://formsubmit.co/rakhimov.aydar@yandex.ru" method="post">
+        <input type="hidden" name="_subject" value="Новая заявка: группа «Я в порядке»" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <div class="field">
+          <span class="icon" aria-hidden="true">✉</span>
+          <input type="email" name="email" placeholder="Введите ваш эл. адрес" required />
+        </div>
+        <div class="field">
+          <span class="icon" aria-hidden="true">◌</span>
+          <input type="text" name="name" placeholder="Введите ваше имя" required />
+        </div>
+        <div class="field">
+          <span class="icon" aria-hidden="true">☎</span>
+          <input type="tel" name="phone" placeholder="Введите ваш телефон" required />
+        </div>
+        <div class="form-submit">
+          <button class="btn" type="submit">Принять участие</button>
+        </div>
+      </form>
       <p class="fineprint">
-        Замените у кнопки <code>href</code> на ссылку на мессенджер, форму или почту для записи.
+        После отправки заявки вы получите подтверждение и детали участия.
       </p>
     </footer>
   </div>
